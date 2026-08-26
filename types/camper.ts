@@ -66,7 +66,7 @@ export interface Review {
   createdAt: string;
 }
 
-export interface Filters {
+export interface AvailableFilters {
   forms: CamperForm[];
   transmissions: Transmission[];
   engines: Engine[];
@@ -79,4 +79,13 @@ export interface BookingRequest {
 
 export interface BookingResponse {
   message: string;
+}
+
+export interface CamperQueryParams {
+  page?: number;
+  perPage?: number;
+  location?: string;
+  form?: CamperForm;
+  transmission?: Transmission;
+  engine?: Engine;
 }
