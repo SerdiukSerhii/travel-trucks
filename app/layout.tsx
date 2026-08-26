@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Manrope } from 'next/font/google';
 import 'modern-normalize/modern-normalize.css';
 import './globals.css';
+import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -25,7 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${manrope.variable}`}>{children}</body>
+      <body className={`${inter.variable} ${manrope.variable}`}>
+        <TanStackProvider>
+          <main>{children}</main>
+        </TanStackProvider>
+      </body>
     </html>
   );
 }
