@@ -1,4 +1,4 @@
-const Home = async () => {
+const HomePage = async () => {
   return (
     <section>
       <h1>TravelTrucks</h1>
@@ -6,4 +6,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default HomePage;
