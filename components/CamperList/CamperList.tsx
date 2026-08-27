@@ -1,4 +1,6 @@
 import { Camper } from '@/types/camper';
+import CamperCard from '@/components/CamperCard/CamperCard';
+import css from './CamperList.module.css';
 
 interface CamperListProps {
   campers: Camper[];
@@ -6,9 +8,11 @@ interface CamperListProps {
 
 const CamperList = ({ campers }: CamperListProps) => {
   return (
-    <ul>
+    <ul className={css.list}>
       {campers.map(camper => (
-        <li key={camper.id}>{camper.name}</li>
+        <li key={camper.id}>
+          <CamperCard camper={camper} />
+        </li>
       ))}
     </ul>
   );
