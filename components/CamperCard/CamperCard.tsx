@@ -25,63 +25,65 @@ const CamperCard = ({ camper }: CamperCardProps) => {
   } = camper;
 
   return (
-    <article className={css.content}>
-      <div className={css.imageWrapper}>
-        <Image
-          src={coverImage}
-          alt={name}
-          fill
-          sizes="219px"
-          className={css.image}
-          unoptimized
-        />
-      </div>
+    <article className={css.card}>
+      <div className={css.content}>
+        <div className={css.imageWrapper}>
+          <Image
+            src={coverImage}
+            alt={name}
+            fill
+            sizes="219px"
+            className={css.image}
+            unoptimized
+          />
+        </div>
 
-      <div className={css.info}>
-        <div className={css.card__header}>
-          <div className={css.top}>
-            <h2 className={css.title}>{name}</h2>
+        <div className={css.info}>
+          <div className={css.card__header}>
+            <div className={css.top}>
+              <h2 className={css.title}>{name}</h2>
 
-            <p className={css.price}>€{price.toFixed(2)}</p>
-          </div>
-          <div className={css.details}>
-            <div className={css.reviews}>
-              <span className={css.star}>★</span>
-              <span className={css.rating}>{rating}</span>
-              <span className={css.rating}>({totalReviews} Reviews)</span>
+              <p className={css.price}>€{price.toFixed(2)}</p>
             </div>
+            <div className={css.details}>
+              <div className={css.reviews}>
+                <span className={css.star}>★</span>
+                <span className={css.rating}>{rating}</span>
+                <span className={css.rating}>({totalReviews} Reviews)</span>
+              </div>
 
-            <span className={css.location}>{location}</span>
+              <span className={css.location}>{location}</span>
+            </div>
           </div>
-        </div>
 
-        <div className={css.desc_container}>
-          <p className={css.description}>
-            A comfortable camper with everything you need for a great trip, a
-            comfortable camper with everything you need for a great tri.
-          </p>
-        </div>
+          <div className={css.desc_container}>
+            <p className={css.description}>
+              A comfortable camper with everything you need for a great trip, a
+              comfortable camper with everything you need for a great tri.
+            </p>
+          </div>
 
-        <div className={css.badgesContainer}>
-          <Badge icon={<FaGasPump className={css.badgeIcon} />}>
-            {formatLabel(engine)}
-          </Badge>
-          <Badge icon={<FaCog className={css.badgeIcon} />}>
-            {formatLabel(transmission)}
-          </Badge>
-          <Badge icon={<FaCar className={css.badgeIcon} />}>
-            {formatLabel(form)}
-          </Badge>
-        </div>
+          <div className={css.badgesContainer}>
+            <Badge icon={<FaGasPump className={css.badgeIcon} />}>
+              {formatLabel(engine)}
+            </Badge>
+            <Badge icon={<FaCog className={css.badgeIcon} />}>
+              {formatLabel(transmission)}
+            </Badge>
+            <Badge icon={<FaCar className={css.badgeIcon} />}>
+              {formatLabel(form)}
+            </Badge>
+          </div>
 
-        <Link
-          href={`/catalog/${id}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={css.button}
-        >
-          Show more
-        </Link>
+          <Link
+            href={`/catalog/${id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={css.button}
+          >
+            Show more
+          </Link>
+        </div>
       </div>
     </article>
   );

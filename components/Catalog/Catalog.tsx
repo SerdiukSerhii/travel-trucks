@@ -3,6 +3,7 @@
 import { getCampers } from '@/lib/api/campers';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import CamperList from '@/components/CamperList/CamperList';
+import css from '@/components/Catalog/Catalog.module.css';
 
 const Catalog = () => {
   const {
@@ -41,20 +42,17 @@ const Catalog = () => {
   const campers = data.pages.flatMap(page => page.campers);
 
   return (
-    <section>
-      <h1>Campers</h1>
+    <section className={css.section}>
+      <div className={css.catalog}>
+        {/* <Filters /> */}
 
-      <CamperList campers={campers} />
-
-      {hasNextPage && (
-        <button
-          type="button"
-          onClick={() => fetchNextPage()}
-          disabled={isFetchingNextPage}
-        >
-          {isFetchingNextPage ? 'Loading...' : 'Load More'}
-        </button>
-      )}
+        <CamperList
+          campers={campers}
+          hasNextPage={hasNextPage}
+          isFetchingNextPage={isFetchingNextPage}
+          onLoadMore={() => fetchNextPage()}
+        />
+      </div>
     </section>
   );
 };
