@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
 import { LuMapPin } from 'react-icons/lu';
 import type { CamperForm, Engine, Transmission } from '@/types/camper';
+import ButtonBase from '@/components/ButtonBase/ButtonBase';
 import css from './Sidebar.module.css';
 
 export type Filters = {
@@ -142,22 +143,23 @@ const Sidebar = ({ onSearch }: SidebarProps) => {
       </div>
 
       <div className={css.actions}>
-        <button
+        <ButtonBase
           type="button"
           className={css.searchButton}
           onClick={handleSearch}
         >
           Search
-        </button>
+        </ButtonBase>
 
-        <button
+        <ButtonBase
           type="button"
+          variant="secondary"
           className={css.clearButton}
           onClick={handleClear}
         >
-          <IoCloseOutline className={css.clearIcon} />{' '}
+          <IoCloseOutline className={css.clearIcon} />
           <span>Clear filters</span>
-        </button>
+        </ButtonBase>
       </div>
     </aside>
   );

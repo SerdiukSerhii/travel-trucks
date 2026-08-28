@@ -1,3 +1,4 @@
+import ButtonBase from '@/components/ButtonBase/ButtonBase';
 import css from './LoadMoreBtn.module.css';
 
 interface LoadMoreBtnProps {
@@ -8,14 +9,15 @@ interface LoadMoreBtnProps {
 const LoadMoreBtn = ({ onClick, disabled = false }: LoadMoreBtnProps) => {
   return (
     <div className={css.btn_container}>
-      <button
+      <ButtonBase
         type="button"
+        variant="secondary"
         className={css.button}
         onClick={onClick}
         disabled={disabled}
       >
         {disabled ? 'Loading...' : 'Load More'}
-      </button>
+      </ButtonBase>
     </div>
   );
 };

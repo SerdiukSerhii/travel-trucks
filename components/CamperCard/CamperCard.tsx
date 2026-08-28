@@ -1,10 +1,10 @@
-import Link from 'next/link';
 import { Camper } from '@/types/camper';
 import Image from 'next/image';
 import css from './CamperCard.module.css';
-import { FaGasPump, FaCog, FaCar } from 'react-icons/fa';
+import { FaGasPump, FaCog, FaCar, FaStar } from 'react-icons/fa';
 import Badge from '@/components/Badge/Badge';
 import { formatLabel } from '@/utils/formatLabel';
+import ButtonBase from '@/components/ButtonBase/ButtonBase';
 
 interface CamperCardProps {
   camper: Camper;
@@ -43,11 +43,11 @@ const CamperCard = ({ camper }: CamperCardProps) => {
             <div className={css.top}>
               <h2 className={css.title}>{name}</h2>
 
-              <p className={css.price}>€{price.toFixed(2)}</p>
+              <p className={css.price}>€{price.toFixed(1)}</p>
             </div>
             <div className={css.details}>
               <div className={css.reviews}>
-                <span className={css.star}>★</span>
+                <FaStar className={css.star} />
                 <span className={css.rating}>{rating}</span>
                 <span className={css.rating}>({totalReviews} Reviews)</span>
               </div>
@@ -75,14 +75,14 @@ const CamperCard = ({ camper }: CamperCardProps) => {
             </Badge>
           </div>
 
-          <Link
+          <ButtonBase
             href={`/catalog/${id}`}
             target="_blank"
             rel="noopener noreferrer"
             className={css.button}
           >
             Show more
-          </Link>
+          </ButtonBase>
         </div>
       </div>
     </article>

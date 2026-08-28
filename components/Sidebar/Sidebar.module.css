@@ -86,43 +86,24 @@
   cursor: pointer;
   accent-color: #829b91;
 }
+
 .actions {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.searchButton,
+
+.searchButton {
+  width: 100%;
+  padding: 16px 60px;
+}
+
 .clearButton {
   width: 100%;
-  height: 56px;
-  border-radius: 200px;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  cursor: pointer;
+  padding: 16px 32px;
 }
-.searchButton {
-  border: none;
-  background-color: #829b91;
-  color: #ffffff;
-}
-.clearButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border: 1px solid #dadde1;
-  background-color: #ffffff;
-  color: #101828;
-}
+
 .clearIcon {
   width: 20px;
   height: 20px;
-}
-.searchButton:hover {
-  background-color: #708a7f;
-}
-.clearButton:hover {
-  background-color: #f2f2f2;
 }

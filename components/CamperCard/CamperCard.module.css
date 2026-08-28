@@ -63,20 +63,13 @@
   flex-direction: row;
   gap: 8px;
   width: 100%;
-  /* width: 524px; */
-  /* height: 64px; */
 }
 
 .title {
-  /* overflow: hidden; */
-
   font-weight: 600;
   font-size: 24px;
   line-height: 1.33;
   color: #101828;
-
-  /* text-overflow: ellipsis;
-  white-space: nowrap; */
 }
 
 .price {
@@ -106,7 +99,11 @@
 }
 
 .star {
+  width: 16px;
+  height: 16px;
   color: #ffc531;
+  flex-shrink: 0;
+  transform: translateY(-1px);
 }
 
 .rating {
@@ -122,13 +119,6 @@
   color: #101828;
 }
 
-/* .title_review {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #101828;
-} */
-
 .location {
   display: flex;
   align-items: center;
@@ -141,18 +131,6 @@
   line-height: 1.5;
   color: #101828;
 }
-
-/* .location::before {
-  content: '⌖';
-
-  position: absolute;
-  left: 0;
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  color: #475467;
-} */
 
 .desc_container {
   width: 100%;
@@ -178,35 +156,12 @@
 }
 
 .badgeIcon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   color: #101828;
 }
 
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 200px;
   padding: 16px 60px;
-
-  width: fit-content;
-  min-width: 173px;
-  min-height: 56px;
-
-  background-color: #829b91;
-
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-  color: #fff;
-  text-decoration: none;
-
-  transition: background-color 250ms ease;
-}
-
-.button:hover {
-  background-color: #6d7b75;
+  width: 173px;
 }
