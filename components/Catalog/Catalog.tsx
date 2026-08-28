@@ -1,11 +1,19 @@
 'use client';
 
-import { getCampers } from '@/lib/api/campers';
+import { useState } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
+import { getCampers } from '@/lib/api/campers';
 import CamperList from '@/components/CamperList/CamperList';
+import Sidebar, { type Filters } from '@/components/Sidebar/Sidebar';
 import css from '@/components/Catalog/Catalog.module.css';
 
+const initialFilters: Filters = {
+  location: '',
+};
+
 const Catalog = () => {
+  const [filters, setFilters] = useState<Filters>(initialFilters);
+
   const {
     data,
     fetchNextPage,
@@ -14,13 +22,13 @@ const Catalog = () => {
     isLoading,
     isError,
   } = useInfiniteQuery({
-    queryKey: ['campers'],
+    queryKey: ['campers', filters],
     queryFn: ({ pageParam }) =>
       getCampers({
         page: pageParam,
         perPage: 4,
+        ...filters,
       }),
-
     initialPageParam: 1,
     getNextPageParam: lastPage => {
       if (lastPage.page < lastPage.totalPages) {
@@ -30,6 +38,10 @@ const Catalog = () => {
       return undefined;
     },
   });
+
+  const handleSearch = (newFilters: Filters) => {
+    setFilters(newFilters);
+  };
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -44,7 +56,7 @@ const Catalog = () => {
   return (
     <section className={css.section}>
       <div className={css.catalog}>
-        {/* <Filters /> */}
+        <Sidebar onSearch={handleSearch} />
 
         <CamperList
           campers={campers}
@@ -56,5 +68,4 @@ const Catalog = () => {
     </section>
   );
 };
-
 export default Catalog;
