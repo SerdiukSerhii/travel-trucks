@@ -5,6 +5,7 @@ import { FaGasPump, FaCog, FaCar, FaStar } from 'react-icons/fa';
 import Badge from '@/components/Badge/Badge';
 import { formatLabel } from '@/utils/formatLabel';
 import ButtonBase from '@/components/ButtonBase/ButtonBase';
+import { LuMapPin } from 'react-icons/lu';
 
 interface CamperCardProps {
   camper: Camper;
@@ -52,7 +53,10 @@ const CamperCard = ({ camper }: CamperCardProps) => {
                 <span className={css.rating}>({totalReviews} Reviews)</span>
               </div>
 
-              <span className={css.location}>{location}</span>
+              <div className={css.location}>
+                <LuMapPin className={css.locationIcon} />
+                <span>{location}</span>
+              </div>
             </div>
           </div>
 

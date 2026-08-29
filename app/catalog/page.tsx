@@ -1,7 +1,13 @@
-import Catalog from '@/components/Catalog/Catalog';
+import CatalogPage from './CatalogPage';
+import { Metadata } from 'next';
 
-const CatalogPage = () => {
-  return <Catalog />;
+export const metadata: Metadata = {
+  title: 'Catalog',
+  description: 'Explore campers available for rent.',
 };
 
-export default CatalogPage;
+const Page = () => {
+  return <CatalogPage />;
+};
+
+export default Page;
