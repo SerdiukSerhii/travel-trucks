@@ -7,6 +7,7 @@ import CamperList from '@/components/CamperList/CamperList';
 import Sidebar, { type Filters } from '@/components/Sidebar/Sidebar';
 import css from '@/app/catalog/CatalogPage.module.css';
 import LoaderModal from '@/components/LoaderModal/LoaderModal';
+import EmptyState from '@/components/EmptyState/EmptyState';
 
 const initialFilters: Filters = {
   location: '',
@@ -63,12 +64,16 @@ const CatalogPage = () => {
         <div className={css.catalog}>
           <Sidebar onSearch={handleSearch} />
 
-          <CamperList
-            campers={campers}
-            hasNextPage={hasNextPage}
-            isFetchingNextPage={isFetchingNextPage}
-            onLoadMore={() => fetchNextPage()}
-          />
+          {campers.length > 0 ? (
+            <CamperList
+              campers={campers}
+              hasNextPage={hasNextPage}
+              isFetchingNextPage={isFetchingNextPage}
+              onLoadMore={() => fetchNextPage()}
+            />
+          ) : (
+            <EmptyState />
+          )}
         </div>
       </section>
     </>

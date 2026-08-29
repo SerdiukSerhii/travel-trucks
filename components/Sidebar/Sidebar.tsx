@@ -158,7 +158,7 @@ const Sidebar = ({ onSearch }: SidebarProps) => {
           onClick={handleClear}
         >
           <IoCloseOutline className={css.clearIcon} />
-          <span>Clear filters</span>
+          Clear filters
         </ButtonBase>
       </div>
     </aside>
