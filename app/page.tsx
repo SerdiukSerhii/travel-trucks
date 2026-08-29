@@ -1,8 +1,10 @@
+import Hero from '@/components/Hero/Hero';
+
 const HomePage = async () => {
   return (
-    <section>
-      <h1>TravelTrucks</h1>
-    </section>
+    <>
+      <Hero />
+    </>
   );
 };
 
