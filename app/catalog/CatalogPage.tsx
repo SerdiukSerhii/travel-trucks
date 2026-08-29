@@ -15,6 +15,7 @@ const initialFilters: Filters = {
 
 const CatalogPage = () => {
   const [filters, setFilters] = useState<Filters>(initialFilters);
+  const [sidebarKey, setSidebarKey] = useState(0);
 
   const {
     data,
@@ -50,6 +51,16 @@ const CatalogPage = () => {
     setFilters(newFilters);
   };
 
+  const handleClearFilters = () => {
+    setFilters(initialFilters);
+    setSidebarKey(prev => prev + 1);
+  };
+
+  const handleViewAll = () => {
+    setFilters(initialFilters);
+    setSidebarKey(prev => prev + 1);
+  };
+
   if (isError || !data) {
     return <p>Something went wrong...</p>;
   }
@@ -62,7 +73,10 @@ const CatalogPage = () => {
 
       <section className={css.section}>
         <div className={css.catalog}>
-          <Sidebar onSearch={handleSearch} />
+          <Sidebar
+            key={sidebarKey}
+            onSearch={handleSearch}
+          />
 
           {campers.length > 0 ? (
             <CamperList
@@ -72,7 +86,10 @@ const CatalogPage = () => {
               onLoadMore={() => fetchNextPage()}
             />
           ) : (
-            <EmptyState />
+            <EmptyState
+              onViewAll={handleViewAll}
+              onClear={handleClearFilters}
+            />
           )}
         </div>
       </section>

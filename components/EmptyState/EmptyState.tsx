@@ -3,7 +3,12 @@ import ButtonBase from '@/components/ButtonBase/ButtonBase';
 import css from './EmptyState.module.css';
 import { IoCloseOutline } from 'react-icons/io5';
 
-const EmptyState = () => {
+type EmptyStateProps = {
+  onClear: () => void;
+  onViewAll: () => void;
+};
+
+const EmptyState = ({ onClear, onViewAll }: EmptyStateProps) => {
   return (
     <div className={css.wrapper}>
       <div className={css.image_wrapper}>
@@ -30,14 +35,16 @@ const EmptyState = () => {
           type="button"
           variant="secondary"
           className={css.clear_btn}
+          onClick={onClear}
         >
           <IoCloseOutline className={css.clearIcon} />
           Clear filters
         </ButtonBase>
 
         <ButtonBase
-          href="/catalog"
+          type="button"
           className={css.allButton}
+          onClick={onViewAll}
         >
           View all campers
         </ButtonBase>

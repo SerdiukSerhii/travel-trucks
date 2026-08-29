@@ -14,7 +14,9 @@ export type Filters = {
   transmission?: Transmission;
 };
 
-type SidebarProps = { onSearch: (filters: Filters) => void };
+type SidebarProps = {
+  onSearch: (filters: Filters) => void;
+};
 
 type RadioOption<T extends string> = { value: T; label: string };
 
@@ -44,6 +46,7 @@ const Sidebar = ({ onSearch }: SidebarProps) => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+
     setFilters(prev => ({ ...prev, [name]: value }));
   };
 
