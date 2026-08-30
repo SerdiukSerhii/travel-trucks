@@ -5,6 +5,7 @@ import { LuMapPin } from 'react-icons/lu';
 import Badge from '@/components/Badge/Badge';
 import { formatLabel } from '@/utils/formatLabel';
 import CamperGallery from '@/components/CamperGallery/CamperGallery';
+import Reviews from '@/components/Reviews/Reviews';
 
 type CamperDetailsPageProps = {
   camperId: string;
@@ -18,8 +19,8 @@ const CamperDetailsPage = async ({ camperId }: CamperDetailsPageProps) => {
     rating,
     location,
     form,
-    transmission,
-    engine,
+    // transmission,
+    // engine,
     totalReviews,
   } = camper;
 
@@ -53,30 +54,14 @@ const CamperDetailsPage = async ({ camperId }: CamperDetailsPageProps) => {
                 </div>
 
                 <p className={css.meta_desc}>{camper.description}</p>
-                {/* <p className={css.meta_desc}>
-                  Embrace simplicity and freedom with the Mavericks panel truck,
-                  an ideal choice for solo travelers or couples seeking a
-                  compact and efficient way to explore the open roads. This
-                  no-frills yet reliable panel truck offers the essentials for a
-                  comfortable journey, making it the perfect companion for those
-                  who value simplicity and functionality.
-                </p> */}
               </div>
               <div className={css.vehicle_container}>
                 <h2 className={css.vehicle_title}>Vehicle details</h2>
 
                 <div className={css.badgesContainer}>
-                  <Badge>{formatLabel(transmission)}</Badge>
-                  <Badge>{formatLabel(engine)}</Badge>
-
                   {camper.amenities.map(amenity => (
                     <Badge key={amenity}>{formatLabel(amenity)}</Badge>
                   ))}
-
-                  <Badge>{formatLabel(form)}</Badge>
-                  {/* <Badge>{formatLabel(engine)}</Badge>
-                  <Badge>{formatLabel(transmission)}</Badge>
-                  <Badge>{formatLabel(form)}</Badge> */}
                 </div>
                 <div className={css.vehicle_details}>
                   <div className={css.detail_row}>
@@ -117,7 +102,7 @@ const CamperDetailsPage = async ({ camperId }: CamperDetailsPageProps) => {
             <h3 className={css.reviews_title}> Reviews</h3>
             <div className={css.reviews_info_container}>
               <div className={css.reviews_clients}>
-                <div className={css.client_review}></div>
+                <Reviews camperId={camperId} />
               </div>
               <div className={css.form_booking}></div>
             </div>

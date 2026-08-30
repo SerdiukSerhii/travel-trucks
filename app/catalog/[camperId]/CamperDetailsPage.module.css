@@ -172,7 +172,10 @@
   flex-direction: row;
   gap: 8px;
 
-  width: 602px;
+  flex-wrap: wrap;
+  width: 100%;
+
+  margin-bottom: 32px;
 }
 
 .vehicle_details {
@@ -229,10 +232,9 @@
 
 .reviews_clients {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap: 24px;
+
+  width: 623px;
 }
 
 .form_booking {
@@ -246,17 +248,4 @@
   padding: 44px;
 
   min-width: 641px;
-}
-
-.client_review {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
-
-  border-radius: 16px;
-  padding: 16px;
-  min-width: 623px;
-
-  background: #f7f7f7;
 }
