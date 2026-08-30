@@ -18,6 +18,7 @@ const CamperCard = ({ camper }: CamperCardProps) => {
     price,
     rating,
     location,
+    description,
     form,
     transmission,
     engine,
@@ -61,10 +62,7 @@ const CamperCard = ({ camper }: CamperCardProps) => {
           </div>
 
           <div className={css.desc_container}>
-            <p className={css.description}>
-              A comfortable camper with everything you need for a great trip, a
-              comfortable camper with everything you need for a great tri.
-            </p>
+            <p className={css.description}>{description}</p>
           </div>
 
           <div className={css.badgesContainer}>
