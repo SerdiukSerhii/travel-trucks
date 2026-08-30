@@ -2,9 +2,9 @@ import { getCamperById } from '@/lib/api/campers';
 import { FaStar } from 'react-icons/fa';
 import css from './CamperDetailsPage.module.css';
 import { LuMapPin } from 'react-icons/lu';
-import Image from 'next/image';
 import Badge from '@/components/Badge/Badge';
 import { formatLabel } from '@/utils/formatLabel';
+import CamperGallery from '@/components/CamperGallery/CamperGallery';
 
 type CamperDetailsPageProps = {
   camperId: string;
@@ -20,7 +20,6 @@ const CamperDetailsPage = async ({ camperId }: CamperDetailsPageProps) => {
     form,
     transmission,
     engine,
-    coverImage,
     totalReviews,
   } = camper;
 
@@ -29,22 +28,13 @@ const CamperDetailsPage = async ({ camperId }: CamperDetailsPageProps) => {
       <div className="container">
         <div className={css.details_container}>
           <div className={css.card_container}>
-            <div className={css.Gallery_image}>
-              <div className={css.imageWrapper}>
-                <Image
-                  src={coverImage}
-                  alt={name}
-                  fill
-                  sizes="638px"
-                  className={css.image}
-                  unoptimized
-                />
-              </div>
+            <div className={css.gallery_image}>
+              <CamperGallery gallery={camper.gallery} />
             </div>
             <div className={css.info_container}>
               <div className={css.header_container}>
                 <div className={css.meta_container}>
-                  <h3 className={css.meta_title}>{camper.name}</h3>
+                  <h3 className={css.meta_title}>{name}</h3>
                   <div className={css.rating_container}>
                     <div className={css.meta_reviews_container}>
                       <FaStar className={css.star} />

@@ -23,28 +23,9 @@
   width: 100%;
 }
 
-.Gallery_image {
-  padding: 0px;
-
+.gallery_image {
   width: 638px;
-  height: 676px;
-}
-
-.imageWrapper {
-  position: relative;
   flex-shrink: 0;
-
-  width: 638px;
-  height: 505px;
-
-  overflow: hidden;
-  border-radius: 16px;
-
-  margin-bottom: 24px;
-}
-
-.image {
-  object-fit: cover;
 }
 
 .info_container {
