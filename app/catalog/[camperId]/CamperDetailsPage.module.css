@@ -25,6 +25,26 @@
 
 .Gallery_image {
   padding: 0px;
+
+  width: 638px;
+  height: 676px;
+}
+
+.imageWrapper {
+  position: relative;
+  flex-shrink: 0;
+
+  width: 638px;
+  height: 505px;
+
+  overflow: hidden;
+  border-radius: 16px;
+
+  margin-bottom: 24px;
+}
+
+.image {
+  object-fit: cover;
 }
 
 .info_container {
@@ -36,15 +56,226 @@
   flex-direction: column;
   gap: 16px;
 
-  width: 650px;
+  width: 100%;
+  min-width: 650px;
 }
 
-.reviews_container {
+.header_container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+
+  border-radius: 16px;
+  padding: 24px;
+
+  width: 100%;
+}
+
+.meta_container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 267px;
+}
+
+.meta_title {
+  font-weight: 600;
+  font-size: 24px;
+
+  line-height: 1.3;
+  color: #101828;
+
+  margin-bottom: 8px;
+}
+
+.rating_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  min-width: 267px;
+}
+
+.meta_reviews_container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  gap: 4px;
+}
+
+.star {
+  width: 16px;
+  height: 16px;
+  color: #ffc531;
+  flex-shrink: 0;
+  transform: translateY(-1px);
+}
+
+.rating {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 12px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #101828;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #101828;
+}
+
+.meta_price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: #101828;
+
+  margin-top: 16px;
+}
+
+.meta_desc {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
+
+  width: 100%;
+}
+
+.vehicle_container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+
+  border-radius: 16px;
+  padding: 24px;
+
+  width: 100%;
+}
+
+.vehicle_title {
+  font-weight: 600;
+  font-size: 24px;
+
+  line-height: 1.3;
+  color: #101828;
+
+  margin-bottom: 16px;
+}
+
+.badgesContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 8px;
+
+  width: 602px;
+}
+
+.vehicle_details {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 8px;
+
+  width: 100%;
+}
+
+.detail_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #101828;
+}
+
+.reviews_container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  width: 100%;
+}
+
+.reviews_title {
+  font-weight: 600;
+  font-size: 24px;
+
+  line-height: 1.3;
+  color: #101828;
+
+  margin-bottom: 24px;
+}
+
+.reviews_info_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 48px;
 
   width: 100%;
+}
+
+.reviews_clients {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form_booking {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  border: 1px solid #dadde1;
+  border-radius: 16px;
+  padding: 44px;
+
+  min-width: 641px;
+}
+
+.client_review {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  border-radius: 16px;
+  padding: 16px;
+  min-width: 623px;
+
+  background: #f7f7f7;
 }
