@@ -1,0 +1,50 @@
+.details_section {
+  padding: 64px 0;
+}
+
+.details_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 88px;
+
+  min-width: 1312px;
+  height: 100hw;
+}
+
+.card_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 24px;
+
+  width: 100%;
+}
+
+.Gallery_image {
+  padding: 0px;
+}
+
+.info_container {
+  padding: 0;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 650px;
+}
+
+.reviews_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 48px;
+
+  width: 100%;
+}
