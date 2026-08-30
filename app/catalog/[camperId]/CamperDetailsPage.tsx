@@ -6,6 +6,7 @@ import Badge from '@/components/Badge/Badge';
 import { formatLabel } from '@/utils/formatLabel';
 import CamperGallery from '@/components/CamperGallery/CamperGallery';
 import Reviews from '@/components/Reviews/Reviews';
+import BookingForm from '@/components/BookingForm/BookingForm';
 
 type CamperDetailsPageProps = {
   camperId: string;
@@ -13,16 +14,7 @@ type CamperDetailsPageProps = {
 
 const CamperDetailsPage = async ({ camperId }: CamperDetailsPageProps) => {
   const camper = await getCamperById(camperId);
-  const {
-    name,
-    price,
-    rating,
-    location,
-    form,
-    // transmission,
-    // engine,
-    totalReviews,
-  } = camper;
+  const { name, price, rating, location, form, totalReviews } = camper;
 
   return (
     <section className={css.details_section}>
@@ -99,12 +91,14 @@ const CamperDetailsPage = async ({ camperId }: CamperDetailsPageProps) => {
           </div>
 
           <div className={css.reviews_container}>
-            <h3 className={css.reviews_title}> Reviews</h3>
+            <h2 className={css.reviews_title}> Reviews</h2>
             <div className={css.reviews_info_container}>
               <div className={css.reviews_clients}>
                 <Reviews camperId={camperId} />
               </div>
-              <div className={css.form_booking}></div>
+              <div className={css.form_booking}>
+                <BookingForm camperId={camperId} />
+              </div>
             </div>
           </div>
         </div>
