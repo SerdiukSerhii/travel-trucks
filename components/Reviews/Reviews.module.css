@@ -3,7 +3,8 @@
   flex-direction: column;
   gap: 24px;
 
-  width: 623px;
+  min-width: 623px;
+  height: 100%;
 }
 
 .review {
@@ -11,11 +12,13 @@
   flex-direction: column;
   gap: 16px;
 
+  flex: 1;
   width: 100%;
   padding: 16px;
 
   border-radius: 16px;
-  background: #f7f7f7;
+  /* background: #f7f7f7; */
+  background: #ca5858;
 }
 
 .reviewer {

@@ -47,6 +47,7 @@ const CamperDetailsPage = async ({ camperId }: CamperDetailsPageProps) => {
 
                 <p className={css.meta_desc}>{camper.description}</p>
               </div>
+
               <div className={css.vehicle_container}>
                 <h2 className={css.vehicle_title}>Vehicle details</h2>
 
@@ -93,12 +94,12 @@ const CamperDetailsPage = async ({ camperId }: CamperDetailsPageProps) => {
           <div className={css.reviews_container}>
             <h2 className={css.reviews_title}> Reviews</h2>
             <div className={css.reviews_info_container}>
-              <div className={css.reviews_clients}>
-                <Reviews camperId={camperId} />
-              </div>
-              <div className={css.form_booking}>
-                <BookingForm camperId={camperId} />
-              </div>
+              {/* <div className={css.reviews_clients}></div> */}
+              <Reviews camperId={camperId} />
+
+              <BookingForm camperId={camperId} />
+
+              {/* <div className={css.form_booking}></div> */}
             </div>
           </div>
         </div>

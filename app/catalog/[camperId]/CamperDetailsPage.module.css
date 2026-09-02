@@ -52,6 +52,7 @@
   padding: 24px;
 
   width: 100%;
+  background: #f7f7f7;
 }
 
 .meta_container {
@@ -153,6 +154,7 @@
   padding: 24px;
 
   width: 100%;
+  background: #f7f7f7;
 }
 
 .vehicle_title {
@@ -228,24 +230,12 @@
   gap: 48px;
 
   width: 100%;
+  min-height: 384px;
 }
 
-.reviews_clients {
+/* .reviews_clients {
   display: flex;
   flex-direction: column;
 
   width: 623px;
-}
-
-.form_booking {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  border: 1px solid #dadde1;
-  border-radius: 16px;
-  padding: 44px;
-
-  min-width: 641px;
-}
+} */
