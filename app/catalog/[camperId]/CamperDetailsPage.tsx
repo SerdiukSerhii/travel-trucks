@@ -42,7 +42,7 @@ const CamperDetailsPage = async ({ camperId }: CamperDetailsPageProps) => {
                     </div>
                   </div>
 
-                  <p className={css.meta_price}>€{price.toFixed(1)}</p>
+                  <p className={css.meta_price}>€{price.toFixed(0)}</p>
                 </div>
 
                 <p className={css.meta_desc}>{camper.description}</p>

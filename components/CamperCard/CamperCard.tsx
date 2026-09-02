@@ -45,7 +45,7 @@ const CamperCard = ({ camper }: CamperCardProps) => {
             <div className={css.top}>
               <h2 className={css.title}>{name}</h2>
 
-              <p className={css.price}>€{price.toFixed(1)}</p>
+              <p className={css.price}>€{price.toFixed(0)}</p>
             </div>
             <div className={css.details}>
               <div className={css.reviews}>

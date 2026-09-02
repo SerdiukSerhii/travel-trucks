@@ -72,25 +72,27 @@ const CatalogPage = () => {
       {isInitialOrFilterLoading && <LoaderModal />}
 
       <section className={css.section}>
-        <div className={css.catalog}>
-          <Sidebar
-            key={sidebarKey}
-            onSearch={handleSearch}
-          />
+        <div className="container">
+          <div className={css.catalog}>
+            <Sidebar
+              key={sidebarKey}
+              onSearch={handleSearch}
+            />
 
-          {campers.length > 0 ? (
-            <CamperList
-              campers={campers}
-              hasNextPage={hasNextPage}
-              isFetchingNextPage={isFetchingNextPage}
-              onLoadMore={() => fetchNextPage()}
-            />
-          ) : (
-            <EmptyState
-              onViewAll={handleViewAll}
-              onClear={handleClearFilters}
-            />
-          )}
+            {campers.length > 0 ? (
+              <CamperList
+                campers={campers}
+                hasNextPage={hasNextPage}
+                isFetchingNextPage={isFetchingNextPage}
+                onLoadMore={() => fetchNextPage()}
+              />
+            ) : (
+              <EmptyState
+                onViewAll={handleViewAll}
+                onClear={handleClearFilters}
+              />
+            )}
+          </div>
         </div>
       </section>
     </>
