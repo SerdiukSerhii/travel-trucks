@@ -94,12 +94,9 @@ const CamperDetailsPage = async ({ camperId }: CamperDetailsPageProps) => {
           <div className={css.reviews_container}>
             <h2 className={css.reviews_title}> Reviews</h2>
             <div className={css.reviews_info_container}>
-              {/* <div className={css.reviews_clients}></div> */}
               <Reviews camperId={camperId} />
 
               <BookingForm camperId={camperId} />
-
-              {/* <div className={css.form_booking}></div> */}
             </div>
           </div>
         </div>

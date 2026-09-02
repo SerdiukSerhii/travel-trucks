@@ -9,7 +9,8 @@
   flex-direction: column;
   gap: 88px;
 
-  min-width: 1312px;
+  width: 100%;
+  max-width: 1312px;
   height: 100hw;
 }
 
@@ -230,12 +231,6 @@
   gap: 48px;
 
   width: 100%;
-  min-height: 384px;
+  max-width: 1312px;
+  height: 384px;
 }
-
-/* .reviews_clients {
-  display: flex;
-  flex-direction: column;
-
-  width: 623px;
-} */
