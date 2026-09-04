@@ -65,17 +65,23 @@ const CamperCard = ({ camper }: CamperCardProps) => {
             <p className={css.description}>{description}</p>
           </div>
 
-          <div className={css.badgesContainer}>
-            <Badge icon={<FaGasPump className={css.badgeIcon} />}>
-              {formatLabel(engine)}
-            </Badge>
-            <Badge icon={<FaCog className={css.badgeIcon} />}>
-              {formatLabel(transmission)}
-            </Badge>
-            <Badge icon={<FaCar className={css.badgeIcon} />}>
-              {formatLabel(form)}
-            </Badge>
-          </div>
+          <ul className={css.badgesContainer}>
+            <li>
+              <Badge icon={<FaGasPump className={css.badgeIcon} />}>
+                {formatLabel(engine)}
+              </Badge>
+            </li>
+            <li>
+              <Badge icon={<FaCog className={css.badgeIcon} />}>
+                {formatLabel(transmission)}
+              </Badge>
+            </li>
+            <li>
+              <Badge icon={<FaCar className={css.badgeIcon} />}>
+                {formatLabel(form)}
+              </Badge>
+            </li>
+          </ul>
 
           <ButtonBase
             href={`/catalog/${id}`}

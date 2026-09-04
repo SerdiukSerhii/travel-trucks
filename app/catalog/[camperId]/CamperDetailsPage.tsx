@@ -51,11 +51,14 @@ const CamperDetailsPage = async ({ camperId }: CamperDetailsPageProps) => {
               <div className={css.vehicle_container}>
                 <h2 className={css.vehicle_title}>Vehicle details</h2>
 
-                <div className={css.badgesContainer}>
+                <ul className={css.badgesContainer}>
                   {camper.amenities.map(amenity => (
-                    <Badge key={amenity}>{formatLabel(amenity)}</Badge>
+                    <li key={amenity}>
+                      <Badge>{formatLabel(amenity)}</Badge>
+                    </li>
                   ))}
-                </div>
+                </ul>
+
                 <ul className={css.vehicle_details}>
                   <li className={css.detail_row}>
                     <span>Form</span>
