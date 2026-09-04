@@ -56,37 +56,37 @@ const CamperDetailsPage = async ({ camperId }: CamperDetailsPageProps) => {
                     <Badge key={amenity}>{formatLabel(amenity)}</Badge>
                   ))}
                 </div>
-                <div className={css.vehicle_details}>
-                  <div className={css.detail_row}>
+                <ul className={css.vehicle_details}>
+                  <li className={css.detail_row}>
                     <span>Form</span>
                     <span>{formatLabel(form)}</span>
-                  </div>
+                  </li>
 
-                  <div className={css.detail_row}>
+                  <li className={css.detail_row}>
                     <span>Length</span>
                     <span>{camper.length}</span>
-                  </div>
+                  </li>
 
-                  <div className={css.detail_row}>
+                  <li className={css.detail_row}>
                     <span>Width</span>
                     <span>{camper.width}</span>
-                  </div>
+                  </li>
 
-                  <div className={css.detail_row}>
+                  <li className={css.detail_row}>
                     <span>Height</span>
                     <span>{camper.height}</span>
-                  </div>
+                  </li>
 
-                  <div className={css.detail_row}>
+                  <li className={css.detail_row}>
                     <span>Tank</span>
                     <span>{camper.tank}</span>
-                  </div>
+                  </li>
 
-                  <div className={css.detail_row}>
+                  <li className={css.detail_row}>
                     <span>Consumption</span>
                     <span>{camper.consumption}</span>
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
