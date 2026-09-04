@@ -42,8 +42,48 @@ reviews, and send booking requests.
 
 ## Getting Started
 
-First, install the dependencies:
+### Prerequisites
+
+Before running the project, make sure you have installed:
+
+- Node.js
+- npm
+
+### Installation
+
+Clone the repository:
 
 ```bash
-npm install
+git clone https://github.com/SerdiukSerhii/travel-trucks.git
 ```
+
+Navigate to the project directory:
+
+cd <name_project>
+
+Install the project dependencies:
+
+npm install Running the Development Server
+
+Start the development server:
+
+npm run dev
+
+After the server starts, open the following address in your browser:
+
+http://localhost:3000
+
+Production Build
+
+To create a production build:
+
+npm run build
+
+To start the application in production mode:
+
+npm start Live Demo
+
+TravelTrucks: https://travel-trucks-five-swart.vercel.app GitHub Repository:
+https://github.com/SerdiukSerhii/travel-trucks
+
+Author: SERHII SERDIUK
