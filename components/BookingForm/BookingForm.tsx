@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { createBookingRequest } from '@/lib/api/campers';
 import ButtonBase from '@/components/ButtonBase/ButtonBase';
 import toast from 'react-hot-toast';
+import { MdErrorOutline } from 'react-icons/md';
 import css from './BookingForm.module.css';
 
 type BookingFormProps = {
@@ -60,59 +61,68 @@ const BookingForm = ({ camperId }: BookingFormProps) => {
         className={css.form}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className={css.field}>
-          <input
-            id="name"
-            className={`${css.input} ${errors.name ? css.inputError : ''}`}
-            type="text"
-            placeholder=" "
-            {...register('name', {
-              required: 'Please enter your name.',
-              pattern: {
-                value: /^[A-Za-zА-Яа-яІіЇїЄєҐґ\s]+$/,
-                message: 'Please enter your name.',
-              },
-            })}
-          />
+        <div className={css.fieldsGroup}>
+          <div className={css.field}>
+            <input
+              id="name"
+              className={`${css.input} ${errors.name ? css.inputError : ''}`}
+              type="text"
+              placeholder=" "
+              {...register('name', {
+                required: 'Please enter your name.',
+                pattern: {
+                  value: /^[A-Za-zА-Яа-яІіЇїЄєҐґ\s]+$/,
+                  message: 'Please enter your name.',
+                },
+              })}
+            />
 
-          <label
-            className={`${css.label} ${errors.name ? css.labelError : ''}`}
-            htmlFor="name"
-          >
-            Name*
-          </label>
+            <label
+              className={`${css.label} ${errors.name ? css.labelError : ''}`}
+              htmlFor="name"
+            >
+              Name*
+            </label>
 
-          {errors.name && <p className={css.error}>{errors.name.message}</p>}
-        </div>
+            {errors.name && <MdErrorOutline className={css.error_icon} />}
 
-        <div className={css.field}>
-          <input
-            id="email"
-            className={`${css.input} ${errors.email ? css.inputError : ''}`}
-            type="email"
-            placeholder=" "
-            {...register('email', {
-              required: 'Please enter your email.',
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: 'Please enter your email.',
-              },
-            })}
-          />
+            {errors.name && <p className={css.error}>{errors.name.message}</p>}
+          </div>
 
-          <label
-            className={`${css.label} ${errors.email ? css.labelError : ''}`}
-            htmlFor="email"
-          >
-            Email*
-          </label>
+          <div className={css.field}>
+            <input
+              id="email"
+              className={`${css.input} ${errors.email ? css.inputError : ''}`}
+              type="email"
+              placeholder=" "
+              {...register('email', {
+                required: 'Please enter your email.',
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: 'Please enter your email.',
+                },
+              })}
+            />
 
-          {errors.email && <p className={css.error}>{errors.email.message}</p>}
+            <label
+              className={`${css.label} ${errors.email ? css.labelError : ''}`}
+              htmlFor="email"
+            >
+              Email*
+            </label>
+
+            {errors.email && <MdErrorOutline className={css.error_icon} />}
+
+            {errors.email && (
+              <p className={css.error}>{errors.email.message}</p>
+            )}
+          </div>
         </div>
 
         <ButtonBase
           type="submit"
           disabled={isLoading}
+          className={css.button}
         >
           {isLoading ? 'Booking...' : 'Send'}
         </ButtonBase>
