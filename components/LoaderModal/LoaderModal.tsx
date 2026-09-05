@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import css from './LoaderModal.module.css';
 
 const LoaderModal = () => {
@@ -13,7 +12,7 @@ const LoaderModal = () => {
     };
   }, []);
 
-  return createPortal(
+  return (
     <div
       className={css.backdrop}
       role="dialog"
@@ -30,9 +29,7 @@ const LoaderModal = () => {
           travel trucks for you
         </p>
       </div>
-    </div>,
-
-    document.body
+    </div>
   );
 };
 

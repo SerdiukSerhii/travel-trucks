@@ -61,8 +61,12 @@ const CatalogPage = () => {
     setSidebarKey(prev => prev + 1);
   };
 
-  if (isError || !data) {
+  if (isError) {
     return <p>Something went wrong...</p>;
+  }
+
+  if (!data) {
+    return <LoaderModal />;
   }
 
   const campers = data.pages.flatMap(page => page.campers);
