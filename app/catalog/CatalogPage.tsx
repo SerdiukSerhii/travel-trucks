@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useInfiniteQuery } from '@tanstack/react-query';
-import { getCampers } from '@/lib/api/campers';
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
+import { getCampers, getAvailableFilters } from '@/lib/api/campers';
 import CamperList from '@/components/CamperList/CamperList';
 import Sidebar, { type Filters } from '@/components/Sidebar/Sidebar';
 import css from '@/app/catalog/CatalogPage.module.css';
@@ -16,6 +16,11 @@ const initialFilters: Filters = {
 const CatalogPage = () => {
   const [filters, setFilters] = useState<Filters>(initialFilters);
   const [sidebarKey, setSidebarKey] = useState(0);
+
+  const { data: availableFilters } = useQuery({
+    queryKey: ['available-filters'],
+    queryFn: getAvailableFilters,
+  });
 
   const {
     data,
@@ -65,7 +70,7 @@ const CatalogPage = () => {
     return <p>Something went wrong...</p>;
   }
 
-  if (!data) {
+  if (!data || !availableFilters) {
     return <LoaderModal />;
   }
 
@@ -80,6 +85,7 @@ const CatalogPage = () => {
           <div className={css.catalog}>
             <Sidebar
               key={sidebarKey}
+              availableFilters={availableFilters}
               onSearch={handleSearch}
             />
 

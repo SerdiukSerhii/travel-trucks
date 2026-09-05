@@ -3,7 +3,12 @@
 import { useState } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
 import { LuMapPin } from 'react-icons/lu';
-import type { CamperForm, Engine, Transmission } from '@/types/camper';
+import type {
+  AvailableFilters,
+  CamperForm,
+  Engine,
+  Transmission,
+} from '@/types/camper';
 import ButtonBase from '@/components/ButtonBase/ButtonBase';
 import css from './Sidebar.module.css';
 
@@ -13,40 +18,25 @@ export type Filters = {
   engine?: Engine;
   transmission?: Transmission;
 };
-
 type SidebarProps = {
+  availableFilters: AvailableFilters;
   onSearch: (filters: Filters) => void;
 };
 
-type RadioOption<T extends string> = { value: T; label: string };
-
-const camperForms: RadioOption<CamperForm>[] = [
-  { value: 'alcove', label: 'Alcove' },
-  { value: 'panel_van', label: 'Panel Van' },
-  { value: 'integrated', label: 'Integrated' },
-  { value: 'semi_integrated', label: 'Semi Integrated' },
-];
-
-const engines: RadioOption<Engine>[] = [
-  { value: 'diesel', label: 'Diesel' },
-  { value: 'petrol', label: 'Petrol' },
-  { value: 'hybrid', label: 'Hybrid' },
-  { value: 'electric', label: 'Electric' },
-];
-
-const transmissions: RadioOption<Transmission>[] = [
-  { value: 'automatic', label: 'Automatic' },
-  { value: 'manual', label: 'Manual' },
-];
-
 const initialFilters: Filters = { location: '' };
 
-const Sidebar = ({ onSearch }: SidebarProps) => {
+const formatLabel = (value: string) => {
+  return value
+    .split('_')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
+const Sidebar = ({ availableFilters, onSearch }: SidebarProps) => {
   const [filters, setFilters] = useState<Filters>(initialFilters);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-
     setFilters(prev => ({ ...prev, [name]: value }));
   };
 
@@ -68,10 +58,8 @@ const Sidebar = ({ onSearch }: SidebarProps) => {
         >
           Location
         </label>
-
         <div className={css.inputWrapper}>
           <LuMapPin className={css.locationIcon} />
-
           <input
             id="location"
             name="location"
@@ -83,68 +71,63 @@ const Sidebar = ({ onSearch }: SidebarProps) => {
           />
         </div>
       </div>
-
       <div className={css.filters}>
         <h2 className={css.title}>Filters</h2>
-
         <fieldset className={css.filterGroup}>
-          <legend className={css.groupTitle}> Camper form </legend>
-          {camperForms.map(option => (
+          <legend className={css.groupTitle}>Camper form</legend>
+          {availableFilters.forms.map(form => (
             <label
-              key={option.value}
+              key={form}
               className={css.option}
             >
               <input
                 type="radio"
                 name="form"
-                value={option.value}
-                checked={filters.form === option.value}
+                value={form}
+                checked={filters.form === form}
                 onChange={handleChange}
               />
-              <span>{option.label}</span>
+              <span>{formatLabel(form)}</span>
             </label>
           ))}
         </fieldset>
-
         <fieldset className={css.filterGroup}>
-          <legend className={css.groupTitle}> Engine </legend>
-          {engines.map(option => (
+          <legend className={css.groupTitle}>Engine</legend>
+          {availableFilters.engines.map(engine => (
             <label
-              key={option.value}
+              key={engine}
               className={css.option}
             >
               <input
                 type="radio"
                 name="engine"
-                value={option.value}
-                checked={filters.engine === option.value}
+                value={engine}
+                checked={filters.engine === engine}
                 onChange={handleChange}
               />
-              <span>{option.label}</span>
+              <span>{formatLabel(engine)}</span>
             </label>
           ))}
         </fieldset>
-
         <fieldset className={css.filterGroup}>
-          <legend className={css.groupTitle}> Transmission </legend>
-          {transmissions.map(option => (
+          <legend className={css.groupTitle}>Transmission</legend>
+          {availableFilters.transmissions.map(transmission => (
             <label
-              key={option.value}
+              key={transmission}
               className={css.option}
             >
               <input
                 type="radio"
                 name="transmission"
-                value={option.value}
-                checked={filters.transmission === option.value}
+                value={transmission}
+                checked={filters.transmission === transmission}
                 onChange={handleChange}
               />
-              <span>{option.label}</span>
+              <span>{formatLabel(transmission)}</span>
             </label>
           ))}
         </fieldset>
       </div>
-
       <div className={css.actions}>
         <ButtonBase
           type="button"
@@ -153,15 +136,13 @@ const Sidebar = ({ onSearch }: SidebarProps) => {
         >
           Search
         </ButtonBase>
-
         <ButtonBase
           type="button"
           variant="secondary"
           className={css.clearButton}
           onClick={handleClear}
         >
-          <IoCloseOutline className={css.clearIcon} />
-          Clear filters
+          <IoCloseOutline className={css.clearIcon} /> Clear filters
         </ButtonBase>
       </div>
     </aside>
